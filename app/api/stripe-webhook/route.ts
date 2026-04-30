@@ -57,7 +57,9 @@ import {
  * 5. Trigger test events: stripe trigger invoice.payment_failed
  */
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY)
+  : null;
 
 const getCustomerEmail = async (
   customerId: string | undefined | null,
@@ -75,6 +77,10 @@ const getCustomerEmail = async (
 };
 
 export async function POST(request: NextRequest) {
+  if (!stripe) {
+    return new NextResponse("Stripe not configured", { status: 503 });
+  }
+
   const body = await request.text();
   const signature = request.headers.get("stripe-signature");
 
