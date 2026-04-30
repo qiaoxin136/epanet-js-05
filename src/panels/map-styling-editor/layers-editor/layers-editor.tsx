@@ -665,7 +665,7 @@ export function AddLayer() {
                       <LayerTypeButton
                         type="XYZ"
                         mode="custom-xyz"
-                        needsUpgrade={!canAddCustomLayers}
+                        needsUpgrade={false}
                         onModeChange={handleModeChange}
                         onUpgrade={handleUpgrade}
                       >
@@ -674,7 +674,7 @@ export function AddLayer() {
                       <LayerTypeButton
                         type="MAPBOX"
                         mode="custom-mapbox"
-                        needsUpgrade={!canAddCustomLayers}
+                        needsUpgrade={false}
                         onModeChange={handleModeChange}
                         onUpgrade={handleUpgrade}
                       >
@@ -683,7 +683,7 @@ export function AddLayer() {
                       <LayerTypeButton
                         type="TILEJSON"
                         mode="custom-tilejson"
-                        needsUpgrade={!canAddCustomLayers}
+                        needsUpgrade={false}
                         onModeChange={handleModeChange}
                         onUpgrade={handleUpgrade}
                       >
@@ -697,7 +697,7 @@ export function AddLayer() {
                       <LayerTypeButton
                         type="GEOJSON"
                         mode="custom-gis"
-                        needsUpgrade={!canAddCustomLayers}
+                        needsUpgrade={false}
                         onModeChange={handleGisButtonClick}
                         onUpgrade={handleUpgrade}
                       >

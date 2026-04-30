@@ -18,13 +18,11 @@ export const resolvePermissions = (
   trialActive: boolean,
   isOrgAdmin: boolean,
 ): Permissions => {
-  const hasPaidAccess =
-    ["pro", "education", "personal", "teams"].includes(plan) || trialActive;
   return {
-    canAddCustomLayers: hasPaidAccess,
-    canUseScenarios: hasPaidAccess,
-    canUseElevations: hasPaidAccess,
-    canUpgrade: plan === "free",
+    canAddCustomLayers: true,
+    canUseScenarios: true,
+    canUseElevations: true,
+    canUpgrade: false,
     canManageOrganization: isOrgAdmin,
   };
 };

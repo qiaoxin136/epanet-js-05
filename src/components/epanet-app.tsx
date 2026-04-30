@@ -141,7 +141,7 @@ export function EpanetApp() {
   useHydrateAtoms([
     [
       dialogAtom as WritableAtom<DialogState, [DialogState], void>,
-      (dialogFromUrl() ?? { type: "welcome" }) as DialogState,
+      (dialogFromUrl() ?? null) as DialogState,
     ],
     [splitsAtom, { ...defaultSplits, rightOpen: isMdOrLarger }],
   ] as const);

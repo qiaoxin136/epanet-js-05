@@ -502,7 +502,7 @@ export const Dialogs = memo(function Dialogs() {
     return <UnexpectedErrorDialog modal={dialog} onClose={onClose} />;
   }
   if (dialog.type === "welcome") {
-    return <WelcomeDialog />;
+    return null;
   }
   if (dialog.type === "loading") {
     return <LoadingDialog />;
