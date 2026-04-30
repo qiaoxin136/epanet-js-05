@@ -64,7 +64,7 @@ const stripe = process.env.STRIPE_SECRET_KEY
 const getCustomerEmail = async (
   customerId: string | undefined | null,
 ): Promise<string> => {
-  if (!customerId) return "Unknown";
+  if (!customerId || !stripe) return "Unknown";
 
   try {
     const customer = await stripe.customers.retrieve(customerId);
