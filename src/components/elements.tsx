@@ -717,8 +717,7 @@ export function sharedOutline(
     dark:focus-visible:ring-offset-gray-900`,
 
     {
-      [`border border-blue-500`]: variant === "primary",
-      [`border border-blue-500`]: variant === "blue",
+      [`border border-blue-500`]: variant === "primary" || variant === "blue",
       [`border
     border-gray-300               dark:border-gray-500
     shadow-sm
