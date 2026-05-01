@@ -7,7 +7,7 @@ export const exportDb = async (): Promise<Blob> => {
     async () => {
       const worker = getDbWorker();
       const bytes = await worker.exportDb();
-      return new Blob([bytes], { type: "application/octet-stream" });
+      return new Blob([bytes as unknown as ArrayBuffer], { type: "application/octet-stream" });
     },
     (blob) => ({ bytes: blob.size }),
   );
