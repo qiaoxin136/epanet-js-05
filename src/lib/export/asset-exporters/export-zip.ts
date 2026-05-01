@@ -13,7 +13,7 @@ export const exportZip = async (
         reject(err);
         return;
       }
-      await writable.write(data);
+      await writable.write(data as unknown as ArrayBuffer);
       if (final) resolve();
     });
 
