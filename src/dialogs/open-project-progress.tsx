@@ -1,4 +1,4 @@
-import * as Progress from "@radix-ui/react-progress";
+﻿import * as Progress from "@radix-ui/react-progress";
 import {
   OpenProjectPhase,
   OpenProjectProgressDialogState,
@@ -60,7 +60,7 @@ export const OpenProjectProgressDialog = ({
             max={100}
           >
             <Progress.Indicator
-              className="relative overflow-hidden bg-purple-500 w-full h-full transition-transform duration-500 ease-out"
+              className="relative overflow-hidden bg-blue-500 w-full h-full transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${100 - percent}%)` }}
             >
               <div className="absolute inset-y-0 left-0 w-1/3 progress-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent" />

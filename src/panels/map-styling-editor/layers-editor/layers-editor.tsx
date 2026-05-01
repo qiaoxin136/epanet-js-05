@@ -1,4 +1,4 @@
-import debounce from "lodash/debounce";
+﻿import debounce from "lodash/debounce";
 import * as T from "@radix-ui/react-tooltip";
 import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import { dialogAtom } from "src/state/dialog";
@@ -1628,7 +1628,7 @@ const LayerTypeButton = ({
 const UpgradeTag = () => {
   const translate = useTranslate();
   return (
-    <span className="bg-purple-100 text-purple-500 text-xs px-1 rounded-md">
+    <span className="bg-blue-100 text-blue-500 text-xs px-1 rounded-md">
       {translate("upgrade").toUpperCase()}
     </span>
   );

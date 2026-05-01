@@ -1,4 +1,4 @@
-import { useAtomValue } from "jotai";
+﻿import { useAtomValue } from "jotai";
 import { useState, useCallback } from "react";
 import clsx from "clsx";
 import { Form, Formik, useFormikContext } from "formik";
@@ -197,7 +197,7 @@ const ControlsTextArea = ({
       onChange={(e) => setFieldValue(name, e.target.value)}
       placeholder={placeholder}
       readOnly={readOnly}
-      className="w-full h-64 p-3 font-mono text-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-sm resize-none focus-visible:outline-none focus-visible:border-transparent focus-visible:ring-purple-500 dark:focus-visible:ring-purple-700 focus-visible:ring-inset"
+      className="w-full h-64 p-3 font-mono text-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-sm resize-none focus-visible:outline-none focus-visible:border-transparent focus-visible:ring-blue-500 dark:focus-visible:ring-blue-700 focus-visible:ring-inset"
     />
   );
 };

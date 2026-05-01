@@ -1,8 +1,13 @@
 import React from "react";
-import { SignedOut as ClerkSignedOut } from "@clerk/nextjs";
 import { isAuthEnabled } from "src/global-config";
+import { useCognitoAuth } from "src/providers/cognito-auth-context";
 
-export const SignedOut = ({ children }: { children: React.ReactNode }) => {
-  if (!isAuthEnabled) return children as JSX.Element;
-  return <ClerkSignedOut>{children}</ClerkSignedOut>;
+const SignedOutWithAuth = ({ children }: { children: React.ReactNode }) => {
+  const { isSignedIn } = useCognitoAuth();
+  if (isSignedIn) return null;
+  return <>{children}</>;
 };
+
+export const SignedOut = isAuthEnabled
+  ? SignedOutWithAuth
+  : ({ children }: { children: React.ReactNode }) => <>{children}</>;

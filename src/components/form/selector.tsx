@@ -1,4 +1,4 @@
-import * as Select from "@radix-ui/react-select";
+﻿import * as Select from "@radix-ui/react-select";
 import clsx from "clsx";
 import { CheckIcon, ChevronDownIcon } from "src/icons";
 import React from "react";
@@ -47,7 +47,7 @@ export const triggerStylesFor = (
       !effectiveStyleOptions.disableHoverEffects &&
       (isWarning
         ? "focus:ring-inset focus:ring-1 focus:ring-orange-500 dark:focus:ring-orange-700"
-        : "focus:ring-inset focus:ring-1 focus:ring-purple-500 focus:bg-purple-300/10"),
+        : "focus:ring-inset focus:ring-1 focus:ring-blue-500 focus:bg-blue-300/10"),
   );
 };
 
@@ -259,7 +259,7 @@ export function Selector<T extends string | number>({
                     value={String(option.value)}
                     disabled={option.disabled}
                     className={clsx([
-                      "flex items-center justify-between gap-4 px-2 py-2 focus:bg-purple-300/40",
+                      "flex items-center justify-between gap-4 px-2 py-2 focus:bg-blue-300/40",
                       {
                         "cursor-pointer": !option.disabled,
                         "text-gray-400": !!option.disabled,
@@ -271,7 +271,7 @@ export function Selector<T extends string | number>({
                       {option.description ? option.description : option.label}
                     </Select.ItemText>
                     <Select.ItemIndicator className="ml-auto">
-                      <CheckIcon className="text-purple-700" />
+                      <CheckIcon className="text-blue-700" />
                     </Select.ItemIndicator>
                   </Select.Item>
                 ))}
@@ -294,7 +294,7 @@ export function Selector<T extends string | number>({
                           value={String(option.value)}
                           disabled={option.disabled}
                           className={clsx([
-                            "flex items-center justify-between gap-4 px-2 py-2 focus:bg-purple-300/40",
+                            "flex items-center justify-between gap-4 px-2 py-2 focus:bg-blue-300/40",
                             {
                               "cursor-pointer": !option.disabled,
                               "text-gray-400": !!option.disabled,
@@ -308,7 +308,7 @@ export function Selector<T extends string | number>({
                               : option.label}
                           </Select.ItemText>
                           <Select.ItemIndicator className="ml-auto">
-                            <CheckIcon className="text-purple-700" />
+                            <CheckIcon className="text-blue-700" />
                           </Select.ItemIndicator>
                         </Select.Item>
                       ))}

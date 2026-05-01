@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { auth, currentUser } from "@clerk/nextjs/server";
-import { activateTrial } from "src/lib/user-management";
+import { getServerAuthUser } from "src/lib/cognito-server";
+import { activateTrial, adminGetUser } from "src/lib/cognito-admin";
 import { logger } from "src/infra/server-logger";
 import {
   buildTrialActivatedMessage,
@@ -8,44 +8,35 @@ import {
 } from "src/infra/slack";
 
 export async function POST() {
-  const { userId } = await auth();
+  const serverUser = await getServerAuthUser();
 
-  if (!userId) return new NextResponse("Unauthorized", { status: 401 });
+  if (!serverUser) return new NextResponse("Unauthorized", { status: 401 });
 
-  const user = await currentUser();
+  const user = await adminGetUser(serverUser.username);
 
-  if (!user) {
-    logger.error("Unable to retrieve user for trial activation");
-    return new NextResponse("Error", { status: 500 });
-  }
-
-  const hasUsedTrial = user.publicMetadata?.hasUsedTrial === true;
-  const plan = user.publicMetadata?.userPlan || "free";
-
-  if (hasUsedTrial) {
-    logger.info(`User ${userId} already used trial`);
+  if (user.hasUsedTrial) {
+    logger.info(`User ${serverUser.userId} already used trial`);
     return new NextResponse("Trial already used", { status: 400 });
   }
 
-  if (plan !== "free") {
+  if (user.userPlan !== "free") {
     logger.info(
-      `User ${userId} is on ${String(plan)} plan, trial not applicable`,
+      `User ${serverUser.userId} is on ${user.userPlan} plan, trial not applicable`,
     );
     return new NextResponse("Trial not available for current plan", {
       status: 400,
     });
   }
 
-  logger.info(`Activating trial for user ${userId}`);
-  await activateTrial(userId);
+  logger.info(`Activating trial for user ${serverUser.userId}`);
+  await activateTrial(serverUser.username);
 
   const trialEndsAt = new Date(
     Date.now() + 14 * 24 * 60 * 60 * 1000,
   ).toLocaleDateString();
 
-  const email = user.emailAddresses[0]?.emailAddress || "";
   const message = buildTrialActivatedMessage(
-    email,
+    user.email,
     user.firstName || "",
     user.lastName || "",
     trialEndsAt,

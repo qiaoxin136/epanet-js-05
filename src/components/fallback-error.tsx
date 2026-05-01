@@ -1,4 +1,4 @@
-import { useUserTracking } from "src/infra/user-tracking";
+﻿import { useUserTracking } from "src/infra/user-tracking";
 import { Button } from "./elements";
 import { supportEmail } from "src/global-config";
 import { ErrorIcon } from "src/icons";
@@ -17,7 +17,7 @@ export const FallbackError = () => {
         <p className="text-sm mb-4">
           An error occurred while processing your request. Please try again or
           contact us at{" "}
-          <a href={`mailto:${supportEmail}`} className="text-purple-800">
+          <a href={`mailto:${supportEmail}`} className="text-blue-800">
             {supportEmail}
           </a>
           .

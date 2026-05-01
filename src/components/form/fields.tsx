@@ -1,4 +1,4 @@
-import clsx from "clsx";
+﻿import clsx from "clsx";
 import { createContext, useContext, useState } from "react";
 import * as C from "@radix-ui/react-collapsible";
 import * as Tooltip from "@radix-ui/react-tooltip";
@@ -61,7 +61,7 @@ export const BlockComparisonField = ({
       <div className="relative">
         {hasChanged && (
           <div
-            className="absolute top-0 bottom-0 w-1 bg-purple-500 rounded-full"
+            className="absolute top-0 bottom-0 w-1 bg-blue-500 rounded-full"
             style={{ left: `-${leftOffset}px` }}
           />
         )}

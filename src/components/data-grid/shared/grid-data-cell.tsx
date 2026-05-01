@@ -1,4 +1,4 @@
-import { Cell } from "@tanstack/react-table";
+﻿import { Cell } from "@tanstack/react-table";
 import clsx from "clsx";
 import { DataGridVariant, EditMode, GridColumn } from "../types";
 
@@ -66,24 +66,24 @@ export function GridDataCell<T>({
           : isActive
             ? "bg-white"
             : isSelected
-              ? "bg-purple-300/10"
+              ? "bg-blue-300/10"
               : readOnly
                 ? "bg-gray-50"
                 : "bg-white",
         { "z-[1]": selectionEdge },
         selectionEdge?.left
-          ? "border-l-purple-500"
+          ? "border-l-blue-500"
           : variant === "spreadsheet"
             ? "border-l-gray-200"
             : "border-l-transparent",
-        selectionEdge?.right ? "border-r-purple-500" : "border-r-transparent",
+        selectionEdge?.right ? "border-r-blue-500" : "border-r-transparent",
         selectionEdge?.top
-          ? "border-t-purple-500"
+          ? "border-t-blue-500"
           : variant === "inline" && rowIndex === 0
             ? "border-t-gray-200"
             : "border-t-transparent",
         selectionEdge?.bottom
-          ? "border-b-purple-500"
+          ? "border-b-blue-500"
           : variant === "inline" || (variant === "spreadsheet" && !isLastRow)
             ? "border-b-gray-200"
             : "border-b-transparent",

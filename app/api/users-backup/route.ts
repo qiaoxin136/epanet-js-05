@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Storage } from "@google-cloud/storage";
 import { logger } from "src/infra/server-logger";
-import { clerkClient } from "@clerk/nextjs/server";
+import {
+  CognitoIdentityProviderClient,
+  ListUsersCommand,
+} from "@aws-sdk/client-cognito-identity-provider";
 
 export const dynamic = "force-dynamic";
 
@@ -46,22 +49,29 @@ const store = async (
 };
 
 const generateAllUsersJSON = async (): Promise<string> => {
-  let offset = 0;
-  const limit = 100;
-  const result = [];
-  const client = await clerkClient();
-  while (true) {
-    const { data } = await client.users.getUserList({
-      orderBy: "+created_at",
-      limit,
-      offset,
-    });
-
-    result.push(...data);
-    if (data.length < limit) break;
-
-    offset += limit;
+  const userPoolId = process.env.COGNITO_USER_POOL_ID;
+  if (!userPoolId) {
+    logger.error("COGNITO_USER_POOL_ID not configured");
+    return JSON.stringify([]);
   }
+
+  const client = new CognitoIdentityProviderClient({
+    region: process.env.AWS_COGNITO_REGION || "us-east-1",
+  });
+
+  const result = [];
+  let paginationToken: string | undefined;
+
+  do {
+    const cmd = new ListUsersCommand({
+      UserPoolId: userPoolId,
+      Limit: 60,
+      PaginationToken: paginationToken,
+    });
+    const response = await client.send(cmd);
+    result.push(...(response.Users ?? []));
+    paginationToken = response.PaginationToken;
+  } while (paginationToken);
 
   return JSON.stringify(result);
 };

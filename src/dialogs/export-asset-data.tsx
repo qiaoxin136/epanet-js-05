@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+﻿import { useState, useCallback } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { BaseDialog, SimpleDialogActions } from "src/components/dialog";
 import { useTranslate } from "src/hooks/use-translate";
@@ -90,7 +90,7 @@ export const ExportAssetDataDialog = ({ onClose }: { onClose: () => void }) => {
           <select
             value={format}
             onChange={(e) => setFormat(e.target.value as ExportFormat)}
-            className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             {exportFormats.map(({ value, labelKey }) => (
               <option key={value} value={value}>
@@ -109,7 +109,7 @@ export const ExportAssetDataDialog = ({ onClose }: { onClose: () => void }) => {
               checked={includeSimulationResults}
               disabled={!hasSimulationResults}
               onChange={(e) => setIncludeSimulationResults(e.target.checked)}
-              className="rounded text-purple-600 focus:ring-purple-500 disabled:opacity-50"
+              className="rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-700">
               {includeSimulationResultsLabelText}
@@ -123,7 +123,7 @@ export const ExportAssetDataDialog = ({ onClose }: { onClose: () => void }) => {
               checked={selectedAssetsOnly}
               disabled={!hasSelection}
               onChange={(e) => setSelectedAssetsOnly(e.target.checked)}
-              className="rounded text-purple-600 focus:ring-purple-500 disabled:opacity-50"
+              className="rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-700">
               {translate("exportSelectedAssetsOnly")}

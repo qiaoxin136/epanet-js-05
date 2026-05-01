@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @vitest-environment jsdom
  */
 import { render, screen, waitFor } from "@testing-library/react";
@@ -195,7 +195,7 @@ describe("FilterableSelectCell", () => {
       await user.keyboard("{ArrowDown}");
 
       const optionElements = screen.getAllByRole("option");
-      expect(optionElements[2]).toHaveClass("bg-purple-300/40"); // Pattern B
+      expect(optionElements[2]).toHaveClass("bg-blue-300/40"); // Pattern B
     });
 
     it("navigates up with ArrowUp", async () => {
@@ -213,7 +213,7 @@ describe("FilterableSelectCell", () => {
       await user.keyboard("{ArrowUp}");
 
       const optionElements = screen.getAllByRole("option");
-      expect(optionElements[0]).toHaveClass("bg-purple-300/40"); // CONSTANT
+      expect(optionElements[0]).toHaveClass("bg-blue-300/40"); // CONSTANT
     });
 
     it("ArrowUp from first item wraps to last item", async () => {
@@ -234,7 +234,7 @@ describe("FilterableSelectCell", () => {
 
       const optionElements = screen.getAllByRole("option");
       expect(optionElements[optionElements.length - 1]).toHaveClass(
-        "bg-purple-300/40",
+        "bg-blue-300/40",
       );
     });
 
@@ -253,7 +253,7 @@ describe("FilterableSelectCell", () => {
       await user.keyboard("{ArrowDown}{ArrowDown}{Home}");
 
       const optionElements = screen.getAllByRole("option");
-      expect(optionElements[0]).toHaveClass("bg-purple-300/40");
+      expect(optionElements[0]).toHaveClass("bg-blue-300/40");
     });
 
     it("navigates to last item with End", async () => {
@@ -271,7 +271,7 @@ describe("FilterableSelectCell", () => {
 
       const optionElements = screen.getAllByRole("option");
       expect(optionElements[optionElements.length - 1]).toHaveClass(
-        "bg-purple-300/40",
+        "bg-blue-300/40",
       );
     });
   });
@@ -542,7 +542,7 @@ describe("FilterableSelectCell", () => {
       await waitFor(() => {
         const optionElements = screen.getAllByRole("option");
         // First match (Pattern A) should be highlighted
-        expect(optionElements[0]).toHaveClass("bg-purple-300/40");
+        expect(optionElements[0]).toHaveClass("bg-blue-300/40");
         expect(optionElements[0]).toHaveTextContent("Pattern A");
       });
     });
@@ -586,7 +586,7 @@ describe("FilterableSelectCell", () => {
 
       // Index 2 option should be highlighted
       const optionElements = screen.getAllByRole("option");
-      expect(optionElements[2]).toHaveClass("bg-purple-300/40");
+      expect(optionElements[2]).toHaveClass("bg-blue-300/40");
 
       // Escape should return to search mode (not close)
       await user.keyboard("{Escape}");
@@ -744,7 +744,7 @@ describe("FilterableSelectCell", () => {
       const patternA = optionElements.find(
         (el) => el.textContent === "Pattern A",
       );
-      expect(patternA).toHaveClass("bg-purple-300/40");
+      expect(patternA).toHaveClass("bg-blue-300/40");
     });
 
     it("typeahead in open popover (no search) highlights matching option", async () => {
@@ -769,7 +769,7 @@ describe("FilterableSelectCell", () => {
       const constant = optionElements.find(
         (el) => el.textContent === "CONSTANT",
       );
-      expect(constant).toHaveClass("bg-purple-300/40");
+      expect(constant).toHaveClass("bg-blue-300/40");
     });
   });
 
@@ -809,7 +809,7 @@ describe("FilterableSelectCell", () => {
       const patternB = optionElements.find(
         (el) => el.textContent === "Pattern B",
       );
-      expect(patternB).toHaveClass("bg-purple-300/40");
+      expect(patternB).toHaveClass("bg-blue-300/40");
     });
   });
 

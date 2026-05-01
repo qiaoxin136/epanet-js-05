@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useRef, useState } from "react";
+﻿import React, { memo, useMemo, useRef, useState } from "react";
 import type { User } from "src/auth-types";
 import type { TranslateFn } from "src/hooks/use-translate";
 import { FileInfo } from "src/components/file-info";
@@ -7,7 +7,6 @@ import {
   Button,
   DDContent,
   StyledItem,
-  LogoIconAndWordmarkIcon,
 } from "./elements";
 import { DebugDropdown } from "./menu-bar/menu-bar-dropdown";
 import { isDebugOn } from "src/infra/debug-mode";
@@ -20,7 +19,6 @@ import {
 } from "src/global-config";
 import { useAuth } from "src/hooks/use-auth";
 import { SignedIn, SignedOut, UserButton } from "src/components/auth";
-import { useClerk } from "@clerk/nextjs";
 import { SignInButton, SignUpButton } from "./auth-buttons";
 import { useShowWelcome } from "src/commands/show-welcome";
 import { useUserTracking } from "src/infra/user-tracking";
@@ -52,14 +50,6 @@ export function MenuBarFallback() {
   return <div className="h-12 bg-gray-800"></div>;
 }
 
-export const HeaderLogoUpdated = () => {
-  return (
-    <span className="pl-1" title="Home">
-      <LogoIconAndWordmarkIcon size={98} />
-      <span className="sr-only">epanet-js</span>
-    </span>
-  );
-};
 
 export const MenuBarPlay = memo(function MenuBar() {
   const translate = useTranslate();
@@ -71,18 +61,12 @@ export const MenuBarPlay = memo(function MenuBar() {
   const isSmOrLarger = useBreakpoint("sm");
   const isActivateTrialOn = useFeatureFlag("FLAG_ACTIVATE_TRIAL");
   const effectivePlan = useEffectivePlan();
-  const { openOrganizationProfile } = useClerk();
+  const openOrganizationProfile = () => {};
   const { canManageOrganization } = usePermissions();
 
   return (
     <div className="flex justify-between h-12 pr-2 text-black dark:text-white">
       <div className="flex items-center">
-        <div
-          className="py-1 pl-2 pr-2 inline-flex cursor-pointer"
-          onClick={() => showWelcome({ source: "menu" })}
-        >
-          <HeaderLogoUpdated />
-        </div>
         {isSmOrLarger && <FileInfo />}
       </div>
       <div className="flex items-center gap-x-1">
@@ -260,7 +244,7 @@ export const SideMenu = () => {
   const { user } = useAuth();
   const isActivateTrialOn = useFeatureFlag("FLAG_ACTIVATE_TRIAL");
   const effectivePlan = useEffectivePlan();
-  const { openOrganizationProfile } = useClerk();
+  const openOrganizationProfile = () => {};
   const { canManageOrganization } = usePermissions();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -283,7 +267,6 @@ export const SideMenu = () => {
       >
         <div className="p-6">
           <div className="flex items-center justify-between pb-6">
-            <HeaderLogoUpdated />
             <Button variant="quiet" onClick={toggleMenu}>
               <CloseIcon />
             </Button>
@@ -460,7 +443,7 @@ const TrialOrUpgradeButton = ({
   if (trial) {
     const colorClass = trial.isUrgent
       ? "text-orange-600 dark:text-orange-400"
-      : "text-purple-600 dark:text-purple-400";
+      : "text-blue-600 dark:text-blue-400";
 
     return (
       <Button variant="quiet" size={size} onClick={onUpgrade}>

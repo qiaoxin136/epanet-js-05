@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+﻿import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAtomValue } from "jotai";
 import { Maybe } from "purify-ts/Maybe";
 import { projectSettingsAtom } from "src/state/project-settings";
@@ -202,7 +202,7 @@ export function CustomerPointPanel() {
     <div className="flex flex-col flex-grow overflow-hidden">
       <div className="px-3 pt-4 pb-3 relative">
         {isNew && (
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-purple-500 rounded-full" />
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 rounded-full" />
         )}
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0 flex-1">

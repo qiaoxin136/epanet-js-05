@@ -1,4 +1,4 @@
-import * as Progress from "@radix-ui/react-progress";
+﻿import * as Progress from "@radix-ui/react-progress";
 import { useState } from "react";
 import { SimulationProgressDialogState } from "src/state/dialog";
 import { useTranslate } from "src/hooks/use-translate";
@@ -43,10 +43,10 @@ const ProgressBar = ({
         max={totalDuration}
       >
         {isIndeterminate ? (
-          <Progress.Indicator className="bg-purple-500 h-full w-1/4 rounded-full progress-indeterminate" />
+          <Progress.Indicator className="bg-blue-500 h-full w-1/4 rounded-full progress-indeterminate" />
         ) : (
           <Progress.Indicator
-            className="bg-purple-500 w-full h-full"
+            className="bg-blue-500 w-full h-full"
             style={{
               transform: `translateX(-${100 - progressPercent}%)`,
             }}

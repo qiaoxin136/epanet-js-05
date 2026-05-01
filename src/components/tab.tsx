@@ -1,4 +1,4 @@
-import * as Tabs from "@radix-ui/react-tabs";
+﻿import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
 
 export const TabRoot = Tabs.Root;
@@ -29,10 +29,10 @@ export function Tab({
         text-gray-500 dark:text-gray-400
         hover:text-gray-800 dark:hover:text-gray-200
         hover:bg-gray-100 dark:hover:bg-gray-700/50
-        data-[state=active]:text-purple-600 dark:data-[state=active]:text-purple-400
+        data-[state=active]:text-blue-600 dark:data-[state=active]:text-blue-400
         border-b-2 border-transparent
-        data-[state=active]:border-purple-600 dark:data-[state=active]:border-purple-400
-        focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-purple-500
+        data-[state=active]:border-blue-600 dark:data-[state=active]:border-blue-400
+        focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-blue-500
         transition-colors`,
         className,
       )}

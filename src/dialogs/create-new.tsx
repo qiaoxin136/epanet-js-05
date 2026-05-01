@@ -1,4 +1,4 @@
-import {
+﻿import {
   useDialogState,
   BaseDialog,
   SimpleDialogActions,
@@ -400,9 +400,9 @@ const PressureUnitSelector = ({
 };
 
 const projectionCardBase =
-  "flex flex-col text-left cursor-pointer rounded-lg border bg-white hover:border-purple-500 hover:bg-purple-50 dark:bg-transparent dark:hover:border-purple-500 dark:hover:bg-purple-950 transition-colors overflow-hidden";
+  "flex flex-col text-left cursor-pointer rounded-lg border bg-white hover:border-blue-500 hover:bg-blue-50 dark:bg-transparent dark:hover:border-blue-500 dark:hover:bg-blue-950 transition-colors overflow-hidden";
 const projectionCardUnselected = "border-gray-200 dark:border-gray-700";
-const projectionCardSelected = "border-purple-500 ring-1 ring-purple-500";
+const projectionCardSelected = "border-blue-500 ring-1 ring-blue-500";
 
 const ProjectionSelector = ({
   selected,

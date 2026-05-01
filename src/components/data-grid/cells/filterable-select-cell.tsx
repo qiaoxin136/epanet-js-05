@@ -1,4 +1,4 @@
-import React, {
+﻿import React, {
   useState,
   useRef,
   useCallback,
@@ -353,7 +353,7 @@ export function FilterableSelectCell({
                     value={searchQuery}
                     onChange={handleSearchChange}
                     placeholder="Search..."
-                    className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                    className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
               )}
@@ -452,14 +452,14 @@ const Option: FunctionComponent<OptionProps> = ({
       aria-selected={isSelected}
       className={clsx(
         "flex items-center justify-between gap-4 px-2 py-2 cursor-pointer text-gray-700 rounded",
-        isActive && "bg-purple-300/40",
+        isActive && "bg-blue-300/40",
         !isActive && "hover:bg-gray-100",
       )}
       onMouseDown={onMouseDown}
       onClick={() => onClick(option)}
     >
       <span>{option.label}</span>
-      {isSelected && <CheckIcon className="text-purple-700 flex-shrink-0" />}
+      {isSelected && <CheckIcon className="text-blue-700 flex-shrink-0" />}
     </li>
   );
 };

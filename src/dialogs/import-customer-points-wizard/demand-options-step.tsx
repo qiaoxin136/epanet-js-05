@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { useUserTracking } from "src/infra/user-tracking";
 import { useTranslate } from "src/hooks/use-translate";
 import { WizardState, WizardActions } from "./types";
@@ -32,7 +32,7 @@ export const DemandOptionsStep: React.FC<{
             <label
               className={`flex items-start space-x-3 cursor-pointer rounded-md p-3 border-2 transition-colors ${
                 !keepDemands
-                  ? "border-purple-500 bg-purple-50"
+                  ? "border-blue-500 bg-blue-50"
                   : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
               }`}
             >
@@ -47,7 +47,7 @@ export const DemandOptionsStep: React.FC<{
                     option: "replace",
                   });
                 }}
-                className="mt-1 h-4 w-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                className="mt-1 h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
               />
               <div className="flex-1">
                 <div className="font-medium text-gray-900">
@@ -66,7 +66,7 @@ export const DemandOptionsStep: React.FC<{
             <label
               className={`flex items-start space-x-3 cursor-pointer rounded-md p-3 border-2 transition-colors ${
                 keepDemands
-                  ? "border-purple-500 bg-purple-50"
+                  ? "border-blue-500 bg-blue-50"
                   : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
               }`}
             >
@@ -81,7 +81,7 @@ export const DemandOptionsStep: React.FC<{
                     option: "addOnTop",
                   });
                 }}
-                className="mt-1 h-4 w-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                className="mt-1 h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
               />
               <div className="flex-1">
                 <div className="font-medium text-gray-900">

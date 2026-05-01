@@ -1,4 +1,4 @@
-import { BaseDialog, SimpleDialogActions } from "../components/dialog";
+﻿import { BaseDialog, SimpleDialogActions } from "../components/dialog";
 import { useTranslate } from "src/hooks/use-translate";
 
 import { Button } from "../components/elements";
@@ -99,7 +99,7 @@ export const SubscribeCTA = ({
   return (
     <>
       <p className="pb-3">{translate("newFeaturesEveryDay")}</p>
-      <p className="text-purple-800">
+      <p className="text-blue-800">
         <Button
           variant="quiet"
           onClick={(e) => {

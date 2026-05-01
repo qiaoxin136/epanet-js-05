@@ -1,4 +1,4 @@
-import { User } from "@clerk/nextjs/server";
+import { CognitoAdminUser } from "./cognito-admin";
 
 export type CannyUserData = {
   avatarURL: string;
@@ -7,18 +7,16 @@ export type CannyUserData = {
   name: string;
 };
 
-export const buildCannyAuthData = (user: User): CannyUserData => {
-  const name = buildUserName(user);
-
+export const buildCannyAuthData = (user: CognitoAdminUser): CannyUserData => {
   return {
-    avatarURL: user.imageUrl,
-    email: user.emailAddresses[0]?.emailAddress,
+    avatarURL: "",
+    email: user.email,
     id: user.id,
-    name,
+    name: buildUserName(user),
   };
 };
 
-const buildUserName = (user: User): string => {
+const buildUserName = (user: CognitoAdminUser): string => {
   const firstName = user.firstName?.trim();
   const lastName = user.lastName?.trim();
 
@@ -30,19 +28,5 @@ const buildUserName = (user: User): string => {
     return firstName;
   }
 
-  return buildFallbackUsername(user.id);
-};
-
-const buildFallbackUsername = (userId: string): string => {
-  const prefix = "user_";
-  const startIndex = userId.indexOf(prefix);
-
-  if (startIndex === -1) {
-    return `epanet-js ${userId.slice(0, 6)}`;
-  }
-
-  const afterPrefix = userId.slice(startIndex + prefix.length);
-  const firstSixChars = afterPrefix.slice(0, 6);
-
-  return `epanet-js anonymous user (#${firstSixChars})`;
+  return `epanet-js ${user.id.slice(0, 6)}`;
 };

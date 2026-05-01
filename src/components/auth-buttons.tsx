@@ -1,41 +1,47 @@
-import React from "react";
-import {
-  SignInButton as ClerkSignInButton,
-  SignUpButton as ClerkSignUpButton,
-} from "@clerk/nextjs";
+﻿import React from "react";
 import { Button, B3Size } from "./elements";
 import { useTranslate } from "src/hooks/use-translate";
 import { isAuthEnabled } from "src/global-config";
 import { UserIcon } from "src/icons";
+import { useCognitoAuth } from "src/providers/cognito-auth-context";
 
 export const SignInButton = ({
   onClick,
   autoFocus = false,
   children,
-  forceRedirectUrl,
 }: {
   onClick?: () => void;
   autoFocus?: boolean;
   children?: React.ReactNode;
+  // Accepted for API compatibility with former Clerk usage; ignored by Cognito
+  // since authentication uses an in-page dialog rather than a redirect.
   forceRedirectUrl?: string;
+  signInForceRedirectUrl?: string;
+  signUpForceRedirectUrl?: string;
 }) => {
   const translate = useTranslate();
+  const { openSignIn } = useCognitoAuth();
 
   if (!isAuthEnabled) return null;
 
+  const handleClick = () => {
+    openSignIn();
+    onClick?.();
+  };
+
+  if (children) {
+    return <span onClick={handleClick}>{children}</span>;
+  }
+
   return (
-    <ClerkSignInButton forceRedirectUrl={forceRedirectUrl}>
-      {!children && (
-        <Button
-          variant="quiet"
-          className="text-purple-500 font-semibold"
-          autoFocus={autoFocus}
-          onClick={onClick}
-        >
-          {translate("login")}
-        </Button>
-      )}
-    </ClerkSignInButton>
+    <Button
+      variant="quiet"
+      className="text-blue-500 font-semibold"
+      autoFocus={autoFocus}
+      onClick={handleClick}
+    >
+      {translate("login")}
+    </Button>
   );
 };
 
@@ -49,19 +55,23 @@ export const SignUpButton = ({
   autoFocus?: boolean;
 }) => {
   const translate = useTranslate();
+  const { openSignUp } = useCognitoAuth();
 
   if (!isAuthEnabled) return null;
 
+  const handleClick = () => {
+    openSignUp();
+    onClick?.();
+  };
+
   return (
-    <ClerkSignUpButton>
-      <Button
-        variant="primary"
-        size={size}
-        onClick={onClick}
-        autoFocus={autoFocus}
-      >
-        <UserIcon /> {translate("register")}
-      </Button>
-    </ClerkSignUpButton>
+    <Button
+      variant="primary"
+      size={size}
+      onClick={handleClick}
+      autoFocus={autoFocus}
+    >
+      <UserIcon /> {translate("register")}
+    </Button>
   );
 };

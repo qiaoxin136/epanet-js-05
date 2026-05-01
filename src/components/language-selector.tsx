@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Locale, languageConfig } from "src/infra/i18n/locale";
 import * as DD from "@radix-ui/react-dropdown-menu";
 import * as Tooltip from "@radix-ui/react-tooltip";
@@ -65,7 +65,7 @@ export const LanguageSelector = ({
                     </div>
                     <div className="w-4 h-4 flex items-center justify-center">
                       {locale === language.code && (
-                        <CheckIcon className="text-purple-700" />
+                        <CheckIcon className="text-blue-700" />
                       )}
                     </div>
                   </div>

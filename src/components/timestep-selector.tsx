@@ -1,4 +1,4 @@
-import { useAtomValue } from "jotai";
+﻿import { useAtomValue } from "jotai";
 import clsx from "clsx";
 import * as Popover from "@radix-ui/react-popover";
 import * as DD from "@radix-ui/react-dropdown-menu";
@@ -203,7 +203,7 @@ const SpeedButton = () => {
                 {warning && <WarningIcon className="text-orange-500" />}
                 <span className="w-4 flex items-center justify-center">
                   <DD.ItemIndicator>
-                    <CheckIcon className="text-purple-700" />
+                    <CheckIcon className="text-blue-700" />
                   </DD.ItemIndicator>
                 </span>
               </StyledRadioItem>
@@ -308,7 +308,7 @@ const TimestepDropdown = ({
                     }}
                     className={clsx(
                       "absolute left-0 right-0 flex items-center justify-between gap-4 px-2",
-                      "text-left cursor-pointer hover:bg-purple-300/40 focus:bg-purple-300/40 rounded-sm",
+                      "text-left cursor-pointer hover:bg-blue-300/40 focus:bg-blue-300/40 rounded-sm",
                     )}
                     style={{
                       height: ROW_HEIGHT,
@@ -317,7 +317,7 @@ const TimestepDropdown = ({
                   >
                     <span>{formatTimestepTime(index, reportTimestep)}</span>
                     {isSelected && (
-                      <CheckIcon className="text-purple-700 ml-auto" />
+                      <CheckIcon className="text-blue-700 ml-auto" />
                     )}
                   </button>
                 );

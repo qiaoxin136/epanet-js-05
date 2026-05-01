@@ -1,9 +1,9 @@
-import { EditorView } from "@codemirror/view";
+﻿import { EditorView } from "@codemirror/view";
 import type { Extension } from "@codemirror/state";
 import { HighlightStyle, syntaxHighlighting } from "@codemirror/language";
 import { tags as t } from "@lezer/highlight";
 
-const purple = "var(--highlight-purple)",
+const purple = "var(--highlight-blue)",
   darkPurple = "var(--highlight-dark-purple)",
   gray = "var(--highlight-gray)",
   darkGray = "var(--highlight-dark-gray)",

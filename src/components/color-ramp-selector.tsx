@@ -1,4 +1,4 @@
-import {
+﻿import {
   CARTO_COLOR_DIVERGING,
   CARTO_COLOR_SEQUENTIAL,
   CBColors,
@@ -148,7 +148,7 @@ export const ColorRampSelector = ({
     "flex items-center gap-x-2 justify-between w-full min-w-[90px]",
     "border rounded-sm border-gray-200",
     "text-sm text-gray-700",
-    "focus:ring-inset focus:ring-1 focus:ring-purple-500 focus:bg-purple-300/10",
+    "focus:ring-inset focus:ring-1 focus:ring-blue-500 focus:bg-blue-300/10",
     "p-2 min-h-9 w-full",
   );
 
@@ -252,7 +252,7 @@ function RampChoice({
   return (
     <label
       key={ramp.name}
-      className="hover:cursor-pointer hover:ring-1 dark:ring-white ring-gray-200 focus:ring-purple-300"
+      className="hover:cursor-pointer hover:ring-1 dark:ring-white ring-gray-200 focus:ring-blue-300"
       onClick={() => onSelect && onSelect(ramp.name)}
       tabIndex={1}
     >

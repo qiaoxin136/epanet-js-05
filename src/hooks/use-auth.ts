@@ -1,12 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  useAuth as useClerkAuth,
-  useUser as useClerkUser,
-} from "@clerk/nextjs";
 import { isAuthEnabled } from "src/global-config";
 import { nullUser, User } from "src/auth-types";
-import { Plan } from "src/lib/account-plans";
-import { allSupportedLanguages, Locale } from "src/infra/i18n/locale";
+import { useCognitoAuth } from "src/providers/cognito-auth-context";
 
 export type UseAuthHook = () => {
   isLoaded: boolean;
@@ -19,48 +14,42 @@ export type UseAuthHook = () => {
 
 const AUTH_TIMEOUT_MS = 5000;
 
-const useAuthWithClerk: UseAuthHook = () => {
-  const { isSignedIn, userId, signOut, isLoaded } = useClerkAuth();
-  const { user: clerkUser } = useClerkUser();
+const useAuthWithCognito: UseAuthHook = () => {
+  const { isLoaded, isSignedIn, authUser, signOut, reload } = useCognitoAuth();
 
-  const user: User = clerkUser
+  const user: User = authUser
     ? {
-        id: clerkUser.id,
-        email: clerkUser.primaryEmailAddress?.emailAddress || "",
-        firstName: clerkUser.firstName || undefined,
-        lastName: clerkUser.lastName || undefined,
-        plan: (clerkUser.publicMetadata?.userPlan || "free") as Plan,
-        trialActivatedAt:
-          (clerkUser.publicMetadata?.trialActivatedAt as string) ?? null,
-        trialEndsAt: (clerkUser.publicMetadata?.trialEndsAt as string) ?? null,
-        hasUsedTrial:
-          (clerkUser.publicMetadata?.hasUsedTrial as boolean) ?? false,
-        getLocale: () => {
-          const savedLocale = clerkUser.unsafeMetadata?.locale as Locale;
-          return savedLocale && allSupportedLanguages.includes(savedLocale)
-            ? savedLocale
-            : undefined;
-        },
-        setLocale: async (locale: Locale) => {
-          await clerkUser.update({
-            unsafeMetadata: {
-              ...clerkUser.unsafeMetadata,
-              locale,
-            },
+        id: authUser.userId,
+        email: authUser.email,
+        firstName: authUser.firstName,
+        lastName: authUser.lastName,
+        plan: authUser.plan,
+        trialActivatedAt: authUser.trialActivatedAt,
+        trialEndsAt: authUser.trialEndsAt,
+        hasUsedTrial: authUser.hasUsedTrial,
+        getLocale: () => authUser.locale,
+        setLocale: async (locale) => {
+          const { updateUserAttributes } = await import("aws-amplify/auth");
+          await updateUserAttributes({
+            userAttributes: { "custom:locale": locale },
           });
+          await reload();
         },
       }
     : nullUser;
 
-  const reload = useCallback(async () => {
-    await clerkUser?.reload();
-  }, [clerkUser]);
-
-  return { isSignedIn, isLoaded, userId, user, signOut, reload };
+  return {
+    isLoaded,
+    isSignedIn,
+    userId: authUser?.userId ?? undefined,
+    user,
+    signOut,
+    reload,
+  };
 };
 
 const useAuthWithTimeout: UseAuthHook = () => {
-  const authData = useAuthWithClerk();
+  const authData = useAuthWithCognito();
   const [isLoadedWithTimeout, setIsLoadedWithTimeout] = useState(false);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useTranslate } from "src/hooks/use-translate";
+﻿import { useTranslate } from "src/hooks/use-translate";
 import {
   BaseDialog,
   AckDialogAction,
@@ -73,7 +73,7 @@ export const SimulationReportDialog = () => {
             parts.push(
               <span
                 key={`${index}-slot-${slotIndex}`}
-                className="text-purple-600 underline cursor-pointer hover:text-purple-700 hover:bg-purple-50 px-1 rounded"
+                className="text-blue-600 underline cursor-pointer hover:text-blue-700 hover:bg-blue-50 px-1 rounded"
                 onClick={() => handleAssetClick(assetId)}
               >
                 {asset.label}

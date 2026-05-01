@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+﻿import { useRef, useEffect } from "react";
 
 export const Checkbox = ({
   size = 4,
@@ -9,11 +9,11 @@ export const Checkbox = ({
     <input
       type="checkbox"
       className={`
-        w-${size} h-${size} text-purple-400 border-gray-300 rounded
+        w-${size} h-${size} text-blue-400 border-gray-300 rounded
         ${
           disabled
             ? "cursor-not-allowed bg-gray-200 opacity-50"
-            : "cursor-pointer bg-gray-50 focus:ring-purple-500"
+            : "cursor-pointer bg-gray-50 focus:ring-blue-500"
         }
       `}
       disabled={disabled}
@@ -51,10 +51,10 @@ export const TriStateCheckbox = ({
       aria-label={ariaLabel}
       disabled={disabled}
       onChange={(e) => onChange(e.target.checked)}
-      className={`w-4 h-4 text-purple-400 border-gray-300 rounded ${
+      className={`w-4 h-4 text-blue-400 border-gray-300 rounded ${
         disabled
           ? "cursor-not-allowed bg-gray-200 opacity-50"
-          : "cursor-pointer bg-gray-50 focus:ring-purple-500"
+          : "cursor-pointer bg-gray-50 focus:ring-blue-500"
       }`}
     />
   );

@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { getServerAuthUser } from "src/lib/cognito-server";
+import { adminGetUser } from "src/lib/cognito-admin";
 import Stripe from "stripe";
 import { logger } from "src/infra/server-logger";
 
@@ -30,17 +31,17 @@ const pricingKeyFor = (plan: Plan, paymentType: PaymentType) => {
 };
 
 export async function POST(request: NextRequest) {
-  const { userId } = await auth();
+  const serverUser = await getServerAuthUser();
 
-  if (!userId) return new NextResponse("Unauthorized", { status: 401 });
+  if (!serverUser) return new NextResponse("Unauthorized", { status: 401 });
 
   const body = await request.json();
   const { plan, paymentType } = body;
 
   logger.info(`Initiating checkout session for ${plan}:${paymentType}`);
 
-  const user = await currentUser();
-  const email = user?.emailAddresses[0].emailAddress;
+  const user = await adminGetUser(serverUser.username);
+  const email = user.email;
 
   if (!email) {
     logger.error("Unable to retrieve user email");
@@ -77,7 +78,7 @@ const createCheckoutSession = async (
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
   const prices = await stripe.prices.list({
     lookup_keys: [lookupKey],
-    expand: ["data.product"], // Optional: Expand to get product details
+    expand: ["data.product"],
   });
   if (!prices.data || prices.data.length === 0) {
     throw new Error(`Price with lookup key '${lookupKey}' not found.`);

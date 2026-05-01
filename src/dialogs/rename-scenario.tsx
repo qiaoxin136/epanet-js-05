@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+﻿import { useCallback, useEffect, useRef } from "react";
 import { useAtomValue } from "jotai";
 import { Formik, Form, useField } from "formik";
 import clsx from "clsx";
@@ -135,7 +135,7 @@ function RenameField({
           "w-full px-3 py-2 border rounded text-sm",
           meta.error && meta.touched
             ? "border-orange-500 dark:border-orange-700 focus-visible:ring-orange-500"
-            : "border-gray-300 focus-visible:ring-purple-500",
+            : "border-gray-300 focus-visible:ring-blue-500",
         )}
         placeholder={placeholder}
       />

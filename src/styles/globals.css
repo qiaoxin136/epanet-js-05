@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -179,7 +179,7 @@ details summary::-webkit-details-marker {
 }
 
 :root {
-  --highlight-purple: theme("colors.purple.500");
+  --highlight-blue: theme("colors.purple.500");
   --highlight-dark-purple: theme("colors.purple.700");
   --highlight-yellow: theme("colors.yellow.500");
   --highlight-dark-yellow: theme("colors.yellow.500");
@@ -192,7 +192,7 @@ details summary::-webkit-details-marker {
 }
 
 .dark {
-  --highlight-purple: theme("colors.purple.300");
+  --highlight-blue: theme("colors.purple.300");
   --highlight-dark-purple: theme("colors.purple.100");
   --highlight-yellow: theme("colors.yellow.100");
   --highlight-dark-yellow: theme("colors.yellow.300");
@@ -493,7 +493,7 @@ body.dark .mapboxgl-ctrl-attrib-button {
 
   a {
     text-decoration: underline;
-    @apply text-purple-700 dark:text-purple-300;
+    @apply text-blue-700 dark:text-blue-300;
   }
 
   pre {
@@ -515,7 +515,7 @@ body.dark .mapboxgl-ctrl-attrib-button {
     max-width: 100%;
     height: auto;
     &.ProseMirror-selectednode {
-      @apply ring-1 ring-purple-500;
+      @apply ring-1 ring-blue-500;
     }
   }
 

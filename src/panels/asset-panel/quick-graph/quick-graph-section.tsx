@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef } from "react";
+﻿import { useCallback, useMemo, useRef } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { PinIcon, PinOffIcon } from "src/icons";
 import { Button } from "src/components/elements";
@@ -308,7 +308,7 @@ const QuickGraphSection = ({
       <div className="relative flex-1 min-h-[120px]">
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white/50 dark:bg-gray-900/50 z-10">
-            <div className="w-4 h-4 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
           </div>
         )}
         {data !== null ? (

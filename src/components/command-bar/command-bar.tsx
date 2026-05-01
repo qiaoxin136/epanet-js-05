@@ -1,4 +1,4 @@
-import clsx from "clsx";
+﻿import clsx from "clsx";
 import { useAtom, useAtomValue } from "jotai";
 import { Maybe } from "purify-ts/Maybe";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -311,7 +311,7 @@ const CommandBarModal = ({ onClose }: { onClose: () => void }) => {
                   className={clsx(
                     "flex items-center justify-between gap-2 px-3 py-2 text-sm rounded cursor-pointer text-gray-900 dark:text-gray-100",
                     index === activeIndex
-                      ? "bg-purple-300/40"
+                      ? "bg-blue-300/40"
                       : "hover:bg-gray-100 dark:hover:bg-gray-700",
                   )}
                 >

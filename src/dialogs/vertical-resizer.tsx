@@ -1,4 +1,4 @@
-import { useRef } from "react";
+﻿import { useRef } from "react";
 import { useMove } from "@react-aria/interactions";
 
 const MIN_WIDTH = 150;
@@ -49,7 +49,7 @@ export const VerticalResizer = ({
     >
       <div
         className="w-0.5 h-full
-          bg-purple-700 dark:bg-purple-700
+          bg-blue-700 dark:bg-blue-700
           opacity-0
           group-hover:opacity-100
           pointer-events-none"

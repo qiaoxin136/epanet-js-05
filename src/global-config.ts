@@ -27,4 +27,6 @@ export const customerPointsImportGuide =
 export const teamsPlanRequestFormUrl = "https://tally.so/r/wkqjyo";
 export const scenariosPromoVideoUrl = "https://www.youtube.com/embed/VIDEO_ID";
 
-export const isAuthEnabled = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+export const isAuthEnabled =
+  !!process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID &&
+  !!process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID;

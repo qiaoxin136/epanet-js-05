@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from "react";
+﻿import { memo, useEffect, useRef } from "react";
 import * as T from "@radix-ui/react-tooltip";
 import { useSetAtom, useAtom } from "jotai";
 import {
@@ -207,8 +207,8 @@ export const Resizer = memo(function ResizerInner({
         hover-none:dark:bg-black
         hover-hover:hover:bg-opacity-100
         hover-hover:dark:hover:bg-opacity-100
-        bg-purple-700
-        dark:bg-purple-700
+        bg-blue-700
+        dark:bg-blue-700
         "
       >
         <div
@@ -256,8 +256,8 @@ function PanelToggle({
             : "border-r rounded-l-none",
           `
           absolute px-0.5 py-2 top-1/2 border-t border-b
-          bg-white hover:bg-purple-100 border-gray-300
-          dark:bg-gray-900 dark:text-white dark:hover:bg-purple-700 dark:border-white
+          bg-white hover:bg-blue-100 border-gray-300
+          dark:bg-gray-900 dark:text-white dark:hover:bg-blue-700 dark:border-white
           rounded
         `,
         )}
@@ -292,7 +292,7 @@ export const BottomResizer = memo(function BottomResizerInner() {
     >
       <div
         className="w-full h-1
-          bg-purple-700 dark:bg-purple-700
+          bg-blue-700 dark:bg-blue-700
           opacity-0
           group-hover:opacity-100
           pointer-events-none"
@@ -349,7 +349,7 @@ export const FooterResizer = memo(function FooterResizerInner({
     >
       <div
         className="w-full h-1
-          bg-purple-700 dark:bg-purple-700
+          bg-blue-700 dark:bg-blue-700
           opacity-0
           group-hover:opacity-100
           pointer-events-none"

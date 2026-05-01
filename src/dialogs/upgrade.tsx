@@ -1,4 +1,4 @@
-import {
+﻿import {
   AckDialogAction,
   BaseDialog,
   LoadingDialog,
@@ -258,9 +258,9 @@ const PersonalPlan = ({ paymentType }: { paymentType: PaymentType }) => {
   const price = prices.personal.yearly;
 
   return (
-    <div className="relative bg-white border border-purple-100 rounded-lg shadow-md shadow-purple-300 overflow-hidden flex flex-col justify-between">
+    <div className="relative bg-white border border-blue-100 rounded-lg shadow-md shadow-blue-300 overflow-hidden flex flex-col justify-between">
       <div className="p-6 grid max-xs:block md:flex md:flex-col grid-cols-2 gap-4 flex-1">
-        <div className="absolute top-0 right-0 bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 text-white text-xs font-semibold py-1 px-2 rounded-bl-lg">
+        <div className="absolute top-0 right-0 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 text-white text-xs font-semibold py-1 px-2 rounded-bl-lg">
           {translate("mostPopular")}
         </div>
         <PlanHeader
@@ -392,9 +392,9 @@ const ProPlan = ({ paymentType }: { paymentType: PaymentType }) => {
   const price = prices.pro[paymentType];
 
   return (
-    <div className="relative bg-white border border-purple-100 rounded-lg shadow-md shadow-purple-300 overflow-hidden flex flex-col justify-between">
+    <div className="relative bg-white border border-blue-100 rounded-lg shadow-md shadow-blue-300 overflow-hidden flex flex-col justify-between">
       <div className="p-6 grid max-xs:block md:flex md:flex-col grid-cols-2 gap-4 flex-1">
-        <div className="absolute top-0 right-0 bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 text-white text-xs font-semibold py-1 px-2 rounded-bl-lg">
+        <div className="absolute top-0 right-0 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 text-white text-xs font-semibold py-1 px-2 rounded-bl-lg">
           {translate("mostPopular")}
         </div>
         <PlanHeader

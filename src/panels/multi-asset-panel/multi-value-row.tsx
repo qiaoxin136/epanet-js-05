@@ -1,4 +1,4 @@
-import { useState, KeyboardEventHandler } from "react";
+﻿import { useState, KeyboardEventHandler } from "react";
 import { useTranslate } from "src/hooks/use-translate";
 import { useTranslateUnit } from "src/hooks/use-translate-unit";
 import { localizeDecimal } from "src/infra/i18n/numbers";
@@ -378,7 +378,7 @@ export const QuantityStatsBaseFields = ({
             <input
               role="textbox"
               aria-label={`Value for: ${label}`}
-              className="text-xs font-mono px-2 py-2 bg-gray-100 border-none focus-visible:ring-inset focus-visible:ring-purple-500 focus-visible:bg-purple-300/10"
+              className="text-xs font-mono px-2 py-2 bg-gray-100 border-none focus-visible:ring-inset focus-visible:ring-blue-500 focus-visible:bg-blue-300/10"
               readOnly
               tabIndex={tabIndex}
               onFocus={handleFocus}

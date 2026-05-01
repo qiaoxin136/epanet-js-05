@@ -1,6 +1,7 @@
-import { useOrganizationList as useClerkOrganizationList } from "@clerk/nextjs";
-import { isAuthEnabled } from "src/global-config";
+// Cognito has no built-in organization concept. This stub mirrors the shape
+// of Clerk's useOrganizationList return value so the rest of the codebase
+// compiles without modification.
 
-export const useOrganizationList = isAuthEnabled
-  ? useClerkOrganizationList
-  : () => ({ userMemberships: undefined });
+export const useOrganizationList = (_opts?: unknown) => ({
+  userMemberships: { count: 0, data: [] as unknown[] },
+});

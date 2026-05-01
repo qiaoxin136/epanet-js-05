@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+﻿import React, { useCallback } from "react";
 import { WizardState, WizardActions } from "./types";
 import { useUserTracking } from "src/infra/user-tracking";
 import { captureError } from "src/infra/error-tracking";
@@ -270,7 +270,7 @@ export const DataInputStep: React.FC<{
                   <a
                     href={customerPointsImportGuide}
                     target="_blank"
-                    className="text-purple-700 dark:text-purple-300 underline"
+                    className="text-blue-700 dark:text-blue-300 underline"
                   />
                 ),
               }}

@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+﻿import { useCallback, useMemo } from "react";
 import clsx from "clsx";
 import type { Proj4Projection } from "src/lib/projections";
 import { useTranslate } from "src/hooks/use-translate";
@@ -82,8 +82,8 @@ export const ProjectionResults = ({
                 className={clsx(
                   "w-full text-left px-2 py-1.5 text-sm rounded",
                   isSelected
-                    ? "bg-purple-100 dark:bg-purple-900/30"
-                    : "hover:bg-purple-50 dark:hover:bg-gray-700",
+                    ? "bg-blue-100 dark:bg-blue-900/30"
+                    : "hover:bg-blue-50 dark:hover:bg-gray-700",
                   "text-gray-800 dark:text-gray-200",
                 )}
               >

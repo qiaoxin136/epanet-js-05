@@ -1,4 +1,4 @@
-import {
+﻿import {
   ChangeEventHandler,
   FocusEventHandler,
   KeyboardEventHandler,
@@ -208,7 +208,7 @@ function styledInput({
       ? "border-orange-500 dark:border-orange-700"
       : "border-gray-300 hover:border-gray-200",
     {
-      "focus-visible:bg-purple-300/10 dark:focus-visible:bg-purple-700/40 dark:focus-visible:ring-purple-700 focus-visible:ring-purple-500":
+      "focus-visible:bg-blue-300/10 dark:focus-visible:bg-blue-700/40 dark:focus-visible:ring-blue-700 focus-visible:ring-blue-500":
         variant === "default",
       "focus-visible:bg-orange-300/10 dark:focus-visible:bg-orange-700/40 dark:focus-visible:ring-orange-700 focus-visible:ring-orange-500":
         variant === "warning",

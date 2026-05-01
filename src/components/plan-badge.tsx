@@ -1,8 +1,8 @@
-import { Plan } from "src/lib/account-plans";
+﻿import { Plan } from "src/lib/account-plans";
 import { useTranslate } from "src/hooks/use-translate";
 
 const planStyles: Record<string, string> = {
-  free: "bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 text-purple-800",
+  free: "bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-blue-800",
   pro: "bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 font-bold text-yellow-700",
   personal:
     "bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 text-gray-700 font-bold shadow-md",

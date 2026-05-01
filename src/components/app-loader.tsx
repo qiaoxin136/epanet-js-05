@@ -1,4 +1,4 @@
-import { LogoIcon, LogoWordmarkIcon } from "./elements";
+﻿import { LogoIcon, LogoWordmarkIcon } from "./elements";
 
 type AppLoaderProps = {
   progress: number;
@@ -15,7 +15,7 @@ export const AppLoader = ({ progress }: AppLoaderProps) => {
         <div className="w-full mt-6">
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
             <div
-              className="bg-purple-400 h-2 rounded-full transition-all duration-200 ease-in-out"
+              className="bg-blue-400 h-2 rounded-full transition-all duration-200 ease-in-out"
               style={{ width: `${progress}%` }}
             />
           </div>

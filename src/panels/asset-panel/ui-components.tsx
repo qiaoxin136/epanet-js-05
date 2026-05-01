@@ -1,4 +1,4 @@
-import {
+﻿import {
   useRef,
   useState,
   useMemo,
@@ -132,7 +132,7 @@ const Header = ({
   return (
     <div className={clsx("px-3 pt-4 pb-3 relative")}>
       {isNew && (
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-purple-500 rounded-full" />
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 rounded-full" />
       )}
       <div className="flex items-center justify-between gap-2">
         <div className="min-w-0 flex-1">
@@ -595,7 +595,7 @@ export const ConnectedCustomersRow = ({
         <P.Trigger
           aria-label={`Connected customers: ${customerCount}`}
           onKeyDown={handleTriggerKeyDown}
-          className="text-left text-sm p-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-sm hover:bg-gray-200 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-purple-500 aria-expanded:ring-1 aria-expanded:ring-purple-500 w-full flex items-center gap-x-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-gray-600 tabular-nums"
+          className="text-left text-sm p-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-sm hover:bg-gray-200 focus-visible:ring-inset focus-visible:ring-1 focus-visible:ring-blue-500 aria-expanded:ring-1 aria-expanded:ring-blue-500 w-full flex items-center gap-x-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-gray-600 tabular-nums"
         >
           <MultipleValuesIcon />
           {customerCount}

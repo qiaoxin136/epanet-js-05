@@ -1,4 +1,4 @@
-import classed from "classed-components";
+﻿import classed from "classed-components";
 import clsx from "clsx";
 import type { ClassValue } from "clsx";
 import { Field } from "formik";
@@ -83,7 +83,7 @@ export function Badge({
     <div
       className={clsx(
         {
-          "bg-purple-100 dark:bg-gray-700": variant === "default",
+          "bg-blue-100 dark:bg-gray-700": variant === "default",
           "": variant === "quiet",
         },
         `inline-flex uppercase
@@ -344,7 +344,7 @@ export const styledCheckbox = ({
   clsx([
     sharedOutline("primary"),
     {
-      "text-purple-500 focus:ring-purple-500": variant === "primary",
+      "text-blue-500 focus:ring-blue-500": variant === "primary",
       "text-gray-500 border-gray-500 hover:border-gray-700 dark:hover:border-gray-300 focus:ring-gray-500":
         variant === "default",
     },
@@ -397,8 +397,8 @@ export function styledPropertyInput(
     `bg-transparent block tabular-nums text-xs border-none pr-1 py-2
     overflow-hidden text-wrap
     focus-visible:ring-inset w-full
-    focus-visible:bg-purple-300/10 dark:focus-visible:bg-purple-700/40
-    dark:focus-visible:ring-purple-700 focus-visible:ring-purple-500`,
+    focus-visible:bg-blue-300/10 dark:focus-visible:bg-blue-700/40
+    dark:focus-visible:ring-blue-700 focus-visible:ring-blue-500`,
   );
 }
 
@@ -504,7 +504,7 @@ export function PopoverContent2({
 }
 
 export const styledTextarea =
-  "block w-full mt-1 text-sm font-mono border-gray-300 dark:bg-transparent dark:text-white rounded-sm focus-visible:border-gray-300 overflow-auto focus:ring-purple-500";
+  "block w-full mt-1 text-sm font-mono border-gray-300 dark:bg-transparent dark:text-white rounded-sm focus-visible:border-gray-300 overflow-auto focus:ring-blue-500";
 
 export const StyledFieldTextareaCode = classed(Field)(styledTextarea);
 
@@ -562,7 +562,7 @@ export const DDSeparator = classed(DD.Separator)(styledSeparator);
 export const StyledSelectSeparator = classed(Select.Separator)(styledSeparator);
 
 export const styledInlineA =
-  "text-purple-700 underline hover:text-black dark:text-purple-500 dark:hover:text-purple-300";
+  "text-blue-700 underline hover:text-black dark:text-blue-500 dark:hover:text-blue-300";
 
 export const menuItemLike = ({
   variant = "default",
@@ -680,7 +680,7 @@ export const sharedEqualPadding = (size: B3Size): ClassValue => ({
 });
 
 export const styledRadio = clsx(
-  "text-purple-500 dark:bg-transparent dark:checked:bg-purple-500 focus:ring-purple-500",
+  "text-blue-500 dark:bg-transparent dark:checked:bg-blue-500 focus:ring-blue-500",
   sharedOutline("primary"),
 );
 
@@ -712,12 +712,12 @@ export function sharedOutline(
     dark:focus-visible:ring-offset-gray-900`
           : `focus-visible:ring-1
     focus-visible:ring-offset-1
-    focus-visible:ring-purple-500
-    dark:focus-visible:ring-purple-500
+    focus-visible:ring-blue-500
+    dark:focus-visible:ring-blue-500
     dark:focus-visible:ring-offset-gray-900`,
 
     {
-      [`border border-purple-500`]: variant === "primary",
+      [`border border-blue-500`]: variant === "primary",
       [`border border-blue-500`]: variant === "blue",
       [`border
     border-gray-300               dark:border-gray-500
@@ -749,9 +749,9 @@ const sharedBackground = (variant: B3Variant, disabled = false): ClassValue => {
     case "primary":
     case "code":
       return [
-        `bg-purple-500`,
+        `bg-blue-500`,
         !disabled &&
-          `hover:bg-purple-600 dark:hover:bg-purple-400 hover:shadow`,
+          `hover:bg-blue-600 dark:hover:bg-blue-400 hover:shadow`,
       ];
     case "blue":
       return [
@@ -835,16 +835,16 @@ export const styledButton = ({
       ? `
     aria-expanded:bg-gray-200
     dark:aria-expanded:bg-gray-700
-    group-focus-within:aria-expanded:bg-purple-300/40
+    group-focus-within:aria-expanded:bg-blue-300/40
     transition-colors
     `
       : variant === "quiet/mode"
-        ? `aria-expanded:bg-purple-400 aria-expanded:text-white
-      dark:aria-expanded:bg-purple-600
-    data-state-on:bg-purple-400 dark:data-state-on:bg-gray-900`
+        ? `aria-expanded:bg-blue-400 aria-expanded:text-white
+      dark:aria-expanded:bg-blue-600
+    data-state-on:bg-blue-400 dark:data-state-on:bg-gray-900`
         : variant === "primary"
-          ? `aria-expanded:bg-purple-600
-    data-state-on:bg-purple-600`
+          ? `aria-expanded:bg-blue-600
+    data-state-on:bg-blue-600`
           : variant === "blue"
             ? `aria-expanded:bg-blue-700
     data-state-on:bg-blue-700`
@@ -972,14 +972,14 @@ export const TextWell = classed.div(
 export const StyledSwitch = classed(S.Root)(
   `w-10 h-5 rounded-full
   bg-gray-200 dark:bg-black
-  data-state-checked:bg-purple-300 dark:data-state-checked:bg-purple-400
+  data-state-checked:bg-blue-300 dark:data-state-checked:bg-blue-400
   dark:ring-1 dark:ring-gray-300
   transition-all`,
 );
 export const StyledThumb = classed(S.Thumb)(
   `w-5 h-5 border-2
   border-gray-200 dark:border-black
-  data-state-checked:border-purple-300 dark:data-state-checked:border-purple-400
+  data-state-checked:border-blue-300 dark:data-state-checked:border-blue-400
   rounded-full bg-white block shadow-sm data-state-checked:translate-x-5`,
 );
 

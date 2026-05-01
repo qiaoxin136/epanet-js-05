@@ -1,4 +1,4 @@
-import clsx from "clsx";
+﻿import clsx from "clsx";
 import { useTranslate } from "src/hooks/use-translate";
 import { simulationSettingsCategories } from "./simulation-settings-data";
 
@@ -40,7 +40,7 @@ export const SimulationSettingsSidebar = ({
                 className={clsx(
                   "w-full text-left px-3 py-1.5 rounded text-sm transition-colors",
                   isCategoryActive && !subcategoryIds.includes(activeSection)
-                    ? "bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 font-medium"
+                    ? "bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 font-medium"
                     : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
                 )}
               >
@@ -56,7 +56,7 @@ export const SimulationSettingsSidebar = ({
                         className={clsx(
                           "w-full text-left pl-6 pr-3 py-1.5 rounded text-sm transition-colors",
                           activeSection === sub.id
-                            ? "bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 font-medium"
+                            ? "bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 font-medium"
                             : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
                         )}
                       >

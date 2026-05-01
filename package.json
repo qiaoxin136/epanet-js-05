@@ -26,6 +26,8 @@
     "not ie 11"
   ],
   "dependencies": {
+    "@aws-amplify/adapter-nextjs": "^1.7.2",
+    "@aws-sdk/client-cognito-identity-provider": "^3.1041.0",
     "@clerk/localizations": "^3.11.0",
     "@clerk/nextjs": "^6.39.1",
     "@codemirror/commands": "^6.5.0",
@@ -120,6 +122,8 @@
     "@types/react-dom": "^18.3.7",
     "@xmldom/xmldom": "^0.8.10",
     "autoprefixer": "^10.4.19",
+    "aws-amplify": "^6.16.4",
+    "aws-jwt-verify": "^5.1.1",
     "betterknown": "^1.0.4",
     "browser-fs-access": "^0.33.1",
     "chroma-js": "^3.1.2",

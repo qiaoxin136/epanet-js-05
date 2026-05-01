@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+﻿import { useState, useRef, useCallback, useEffect } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import clsx from "clsx";
@@ -190,13 +190,13 @@ export const VirtualizedSearchableSelector = <
                 "outline-none focus:outline-none focus-visible:outline-none",
                 disabled
                   ? "cursor-not-allowed bg-gray-100 border-gray-300 text-gray-400 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-500"
-                  : "text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600 focus:ring-inset focus:ring-1 focus:ring-purple-500 focus:bg-purple-300/10 focus:border-transparent",
+                  : "text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600 focus:ring-inset focus:ring-1 focus:ring-blue-500 focus:bg-blue-300/10 focus:border-transparent",
               )}
             />
 
             {isSearching && (
               <div className="absolute right-3 top-2.5">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-500"></div>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
               </div>
             )}
           </div>
@@ -243,7 +243,7 @@ export const VirtualizedSearchableSelector = <
                         aria-selected={index === activeIndex}
                         className={clsx(
                           "absolute left-0 right-0 px-2 py-2 cursor-pointer text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded",
-                          index === activeIndex && "bg-purple-300/40",
+                          index === activeIndex && "bg-blue-300/40",
                         )}
                         style={{
                           height: ROW_HEIGHT,

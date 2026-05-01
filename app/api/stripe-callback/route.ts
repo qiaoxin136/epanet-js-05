@@ -1,22 +1,21 @@
 import { NextResponse, NextRequest } from "next/server";
-import { User, auth, currentUser } from "@clerk/nextjs/server";
+import { getServerAuthUser } from "src/lib/cognito-server";
+import { adminGetUser, upgradeUser } from "src/lib/cognito-admin";
 import { logger } from "src/infra/server-logger";
 import Stripe from "stripe";
 import { buildUserUpgradedMessage, sendWithoutCrashing } from "src/infra/slack";
-import { upgradeUser } from "src/lib/user-management";
 
 export async function GET(request: NextRequest) {
-  const { userId } = await auth();
+  const serverUser = await getServerAuthUser();
 
-  if (!userId) return new NextResponse("Unauthorized", { status: 401 });
+  if (!serverUser) return new NextResponse("Unauthorized", { status: 401 });
 
   const sessionId = request.nextUrl.searchParams.get("session_id");
   if (!sessionId) return new NextResponse("Unauthorized", { status: 401 });
 
-  const user = await currentUser();
-  if (!user) return new NextResponse("Unauthorized", { status: 401 });
+  const user = await adminGetUser(serverUser.username);
 
-  const customerId = await obtainCutomerId(sessionId);
+  const customerId = await obtainCustomerId(sessionId);
   if (!customerId) {
     logger.error(`Customer id is missing`);
     return new NextResponse("Error", { status: 500 });
@@ -30,15 +29,15 @@ export async function GET(request: NextRequest) {
     return new NextResponse("Error", { status: 500 });
   }
 
-  await upgradeUser(user, customerId, plan, paymentType);
-  await notifyUpgrade(getEmail(user), plan, paymentType);
+  await upgradeUser(serverUser.username, customerId, plan, paymentType);
+  await notifyUpgrade(user.email, plan, paymentType);
 
   return NextResponse.redirect(
     new URL("/?notification=checkoutSuccess", request.url),
   );
 }
 
-const obtainCutomerId = async (sessionId: string): Promise<string | null> => {
+const obtainCustomerId = async (sessionId: string): Promise<string | null> => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
   const session = await stripe.checkout.sessions.retrieve(sessionId);
   return session.customer as string | null;
@@ -47,8 +46,4 @@ const obtainCutomerId = async (sessionId: string): Promise<string | null> => {
 const notifyUpgrade = (email: string, plan: string, paymentType: string) => {
   const message = buildUserUpgradedMessage(email, plan, paymentType);
   return sendWithoutCrashing(message);
-};
-
-const getEmail = (user: User): string => {
-  return user?.emailAddresses[0].emailAddress;
 };

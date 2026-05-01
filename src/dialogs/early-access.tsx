@@ -3,7 +3,7 @@ import {
   BaseDialog,
   SimpleDialogActions,
 } from "src/components/dialog";
-import { SignInButton as ClerkSignInButton } from "@clerk/nextjs";
+import { SignInButton } from "src/components/auth-buttons";
 import { isAuthEnabled } from "src/global-config";
 import { buildAfterSignupUrl } from "src/hooks/use-early-access";
 import { Button } from "src/components/elements";
@@ -37,10 +37,7 @@ export const EarlyAccessDialog = ({
             <Button variant="default" onClick={closeDialog}>
               {translate("dialog.cancel")}
             </Button>
-            <ClerkSignInButton
-              signUpForceRedirectUrl={redirectUrl}
-              forceRedirectUrl={redirectUrl}
-            >
+            <SignInButton>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -52,7 +49,7 @@ export const EarlyAccessDialog = ({
               >
                 {translate("earlyAccessDialog.getAccess")}
               </Button>
-            </ClerkSignInButton>
+            </SignInButton>
           </div>
         ) : (
           <SimpleDialogActions onClose={closeDialog} />

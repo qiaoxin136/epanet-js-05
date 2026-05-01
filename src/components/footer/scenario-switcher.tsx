@@ -1,4 +1,4 @@
-import * as DD from "@radix-ui/react-dropdown-menu";
+﻿import * as DD from "@radix-ui/react-dropdown-menu";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isPlayingAtom } from "src/state/simulation-playback";
@@ -116,7 +116,7 @@ export const ScenarioSwitcher = () => {
           <Tooltip.Trigger asChild>
             <button
               onClick={handleCreateScenario}
-              className="w-full flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm text-purple-600 bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-md transition-colors"
+              className="w-full flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-md transition-colors"
             >
               <ScenarioIcon size="sm" />
               <span>{translate("scenarios.enableScenarios")}</span>
@@ -164,7 +164,7 @@ export const ScenarioSwitcher = () => {
             <DDContent align="start" side="top" className="min-w-64">
               <StyledItem onSelect={handleSelectMain}>
                 <div
-                  className={`flex items-center w-full gap-2 ${isMainActive ? "text-purple-600" : ""}`}
+                  className={`flex items-center w-full gap-2 ${isMainActive ? "text-blue-600" : ""}`}
                 >
                   <MainModelIcon size="sm" />
                   <div className="flex-1">{translate("scenarios.main")}</div>
@@ -178,10 +178,10 @@ export const ScenarioSwitcher = () => {
                   className="group/scenario"
                 >
                   <div
-                    className={`flex items-center w-full gap-2 ${activeBranchId === scenario.id ? "text-purple-600" : ""}`}
+                    className={`flex items-center w-full gap-2 ${activeBranchId === scenario.id ? "text-blue-600" : ""}`}
                   >
                     <span
-                      className={`font-mono text-sm pl-1 ${activeBranchId === scenario.id ? "text-purple-400" : "text-gray-400"}`}
+                      className={`font-mono text-sm pl-1 ${activeBranchId === scenario.id ? "text-blue-400" : "text-gray-400"}`}
                     >
                       {index === scenariosList.length - 1 ? "└──" : "├──"}
                     </span>

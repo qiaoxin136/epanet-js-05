@@ -1,4 +1,4 @@
-import { Table, flexRender } from "@tanstack/react-table";
+﻿import { Table, flexRender } from "@tanstack/react-table";
 import clsx from "clsx";
 import { TableSelectAllIcon } from "src/icons";
 import { DataGridVariant } from "../types";
@@ -91,7 +91,7 @@ export function GridHeader<T>({
                 className={clsx(
                   "absolute -right-[3px] top-0 h-full w-1 cursor-col-resize select-none touch-none z-10",
                   header.column.getIsResizing()
-                    ? "bg-purple-500"
+                    ? "bg-blue-500"
                     : "bg-gray-300 opacity-0 group-hover:opacity-100",
                 )}
               />

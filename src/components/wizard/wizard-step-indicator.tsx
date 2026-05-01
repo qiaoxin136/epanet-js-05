@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 export interface Step {
   number: number;
   label: string;
@@ -29,7 +29,7 @@ export const WizardStepIndicator: React.FC<WizardStepIndicatorProps> = ({
               aria-current={currentStep === step.number ? "step" : undefined}
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                 currentStep >= step.number
-                  ? "bg-purple-500 text-white"
+                  ? "bg-blue-500 text-white"
                   : "bg-gray-200 text-gray-600"
               }`}
             >
@@ -38,7 +38,7 @@ export const WizardStepIndicator: React.FC<WizardStepIndicatorProps> = ({
             <span
               className={`ml-2 text-sm hidden lg:inline ${
                 currentStep >= step.number
-                  ? "text-purple-600 font-medium"
+                  ? "text-blue-600 font-medium"
                   : "text-gray-500"
               }`}
             >
@@ -50,7 +50,7 @@ export const WizardStepIndicator: React.FC<WizardStepIndicatorProps> = ({
             <div className="flex-1">
               <div
                 className={`h-px ${
-                  currentStep > step.number ? "bg-purple-500" : "bg-gray-300"
+                  currentStep > step.number ? "bg-blue-500" : "bg-gray-300"
                 }`}
               />
             </div>

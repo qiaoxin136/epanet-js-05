@@ -1,4 +1,4 @@
-import {
+﻿import {
   useState,
   useRef,
   useCallback,
@@ -190,7 +190,7 @@ export const SelectorWithSearch: FunctionComponent<{
                 value={searchQuery}
                 onChange={handleSearchChange}
                 placeholder="Search…"
-                className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               />
             </div>
             <OptionsList
@@ -247,7 +247,7 @@ const OptionsList: FunctionComponent<{
           aria-selected={option.value === selected}
           className={clsx(
             "flex items-center justify-between gap-4 px-2 py-2 cursor-pointer text-gray-700 rounded",
-            index === activeIndex && "bg-purple-300/40",
+            index === activeIndex && "bg-blue-300/40",
             index !== activeIndex && "hover:bg-gray-100",
           )}
           onMouseEnter={() => onActiveIndexChange(index)}
@@ -256,7 +256,7 @@ const OptionsList: FunctionComponent<{
         >
           <span>{option.label}</span>
           {option.value === selected && (
-            <CheckIcon className="text-purple-700 flex-shrink-0" />
+            <CheckIcon className="text-blue-700 flex-shrink-0" />
           )}
         </li>
       ))}
