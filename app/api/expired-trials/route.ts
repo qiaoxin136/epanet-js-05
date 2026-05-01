@@ -20,12 +20,11 @@ export async function GET(request: NextRequest) {
   logger.info(`Found ${expiredTrials.length} expired trials`);
 
   for (const user of expiredTrials) {
-    const email = user.emailAddresses[0]?.emailAddress || "";
+    const email = user.email || "";
     const firstName = user.firstName || "";
     const lastName = user.lastName || "";
-    const trialActivatedAt =
-      (user.publicMetadata?.trialActivatedAt as string) || "";
-    const trialEndsAt = (user.publicMetadata?.trialEndsAt as string) || "";
+    const trialActivatedAt = user.trialActivatedAt || "";
+    const trialEndsAt = user.trialEndsAt || "";
 
     const message = buildTrialExpiredMessage(
       email,
