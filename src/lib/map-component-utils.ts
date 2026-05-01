@@ -55,7 +55,7 @@ export function newPolygonFromClickEvent(e: MouseOrTouchEvent): Polygon {
   };
 }
 
-const QRF_OPTIONS: Parameters<MapboxMap["queryRenderedFeatures"]>[1] = {
+const QRF_OPTIONS: { layers: string[] } = {
   layers: clickableLayers,
 };
 
