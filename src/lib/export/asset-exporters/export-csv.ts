@@ -159,7 +159,7 @@ export const exportCsv = (
       extensions: [".csv"],
       mimeTypes: ["text/csv"],
       description: "CSV File",
-      blob: new Blob([bufferView], {
+      blob: new Blob([bufferView as unknown as ArrayBuffer], {
         type: "text/csv",
       }),
     };

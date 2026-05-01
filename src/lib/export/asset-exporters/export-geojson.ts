@@ -146,7 +146,7 @@ export const exportGeoJson = (
       extensions: [".geojson"],
       mimeTypes: ["text/geo+json"],
       description: "GeoJSON File",
-      blob: new Blob([bufferView], {
+      blob: new Blob([bufferView as unknown as ArrayBuffer], {
         type: "text/geo+json",
       }),
     };
