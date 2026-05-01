@@ -56,7 +56,7 @@ const generateAllUsersJSON = async (): Promise<string> => {
   }
 
   const client = new CognitoIdentityProviderClient({
-    region: process.env.AWS_COGNITO_REGION || "us-east-1",
+    region: process.env.COGNITO_REGION || "us-east-1",
   });
 
   const result = [];

@@ -14,7 +14,7 @@ let instance: CognitoIdentityProviderClient | null = null;
 const client = (): CognitoIdentityProviderClient => {
   if (instance) return instance;
   instance = new CognitoIdentityProviderClient({
-    region: process.env.AWS_COGNITO_REGION || process.env.AWS_DEFAULT_REGION || "us-east-1",
+    region: process.env.COGNITO_REGION || "us-east-1",
   });
   return instance;
 };
