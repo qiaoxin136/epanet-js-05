@@ -270,7 +270,7 @@ export const MapCanvas = memo(function MapCanvas({
 
       HANDLERS[mode.mode].double(e);
     },
-    onMoveEnd(e: mapboxgl.MapMoveEvent) {
+    onMoveEnd(e: { target: mapboxgl.Map; type: string }) {
       debug(e, mode.mode, selection, dragTargetRef, "onMouseMoveEnd");
       const center = e.target.getCenter();
       setMapViewport({
@@ -278,7 +278,7 @@ export const MapCanvas = memo(function MapCanvas({
         zoom: e.target.getZoom(),
       });
     },
-    onMove: throttle((e: mapboxgl.MapMoveEvent) => {
+    onMove: throttle((e: { target: mapboxgl.Map; type: string }) => {
       debug(e, mode.mode, selection, dragTargetRef, "onMove");
       const center = e.target.getCenter().toArray();
       const bounds = e.target.getBounds().toArray();
