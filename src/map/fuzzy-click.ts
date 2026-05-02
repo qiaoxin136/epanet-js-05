@@ -4,8 +4,8 @@ import { clickableLayers } from "./layers/layer";
 
 export type MouseOrTouchEvent = mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent;
 
-type QueryOptions = Parameters<MapboxMap["queryRenderedFeatures"]>[1];
-const queryOptions: Parameters<MapboxMap["queryRenderedFeatures"]>[1] = {
+type QueryOptions = { layers: string[] };
+const queryOptions: QueryOptions = {
   layers: clickableLayers,
 };
 
