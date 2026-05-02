@@ -308,7 +308,7 @@ export class MapEngine {
   }
 
   queryRenderedFeatures(
-    pointOrBox: Parameters<MapboxMap["queryRenderedFeatures"]>[0],
+    pointOrBox: any,
     options: { layers?: string[] } | undefined,
   ) {
     const layers = options?.layers || [];
@@ -339,7 +339,7 @@ export class MapEngine {
       [x + distance, y + distance] as mapboxgl.PointLike,
     ] as [mapboxgl.PointLike, mapboxgl.PointLike];
 
-    return this.queryRenderedFeatures(searchBox, {
+    return this.queryRenderedFeatures(searchBox as any, {
       layers: layers as unknown as string[],
     });
   }
