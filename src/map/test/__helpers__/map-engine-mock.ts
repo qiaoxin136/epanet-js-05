@@ -1,5 +1,7 @@
 import mapboxgl from "mapbox-gl";
-import type { GeoJSONSourceRaw, PointLike } from "mapbox-gl";
+import type { PointLike } from "mapbox-gl";
+
+type GeoJSONSourceRaw = { type: "geojson"; data?: GeoJSON.GeoJSON | string };
 import type { MapHandlers, ClickEvent } from "../../types";
 import { DataSource } from "src/map/data-source";
 import { Feature } from "geojson";
