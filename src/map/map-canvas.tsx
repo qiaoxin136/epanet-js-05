@@ -287,7 +287,7 @@ export const MapCanvas = memo(function MapCanvas({
         bounds,
       };
     }, 300),
-    onZoom: (e: mapboxgl.MapBoxZoomEvent) => {
+    onZoom: (e: { target: mapboxgl.Map }) => {
       const zoom = e.target.getZoom();
       setCurrentZoom(zoom);
     },
