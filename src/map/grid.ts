@@ -220,7 +220,7 @@ export class Grid {
 }
 
 function calcGridParams(map: mapboxgl.Map, unitsPerDegree: number) {
-  const bounds = map.getBounds();
+  const bounds = map.getBounds()!;
   const lngSpan = Math.abs(bounds.getEast() - bounds.getWest());
   const viewWidth = lngSpan * unitsPerDegree;
   const idealStep = viewWidth / DENSITY_TARGET;
