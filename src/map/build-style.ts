@@ -169,7 +169,7 @@ function LABEL_PAINT(
 
 function LABEL_LAYOUT(
   previewProperty: PreviewProperty,
-  placement: mapboxgl.SymbolLayout["symbol-placement"],
+  placement: "point" | "line" | "line-center",
 ): mapboxgl.SymbolLayout {
   const paint: mapboxgl.SymbolLayout = {
     "text-field": ["get", previewProperty],
