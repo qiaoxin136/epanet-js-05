@@ -242,7 +242,7 @@ export class MapEngine {
   ): void {
     if (!this.map || !(this.map as any).style) return;
 
-    this.map.setPaintProperty(layerId, name, rule);
+    this.map.setPaintProperty(layerId, name as any, rule);
   }
 
   setOverlay(layers: LayersList) {
