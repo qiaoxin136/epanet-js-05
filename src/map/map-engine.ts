@@ -297,7 +297,7 @@ export class MapEngine {
   }
 
   getBounds(): mapboxgl.LngLatBounds {
-    return this.map.getBounds();
+    return this.map.getBounds()!;
   }
 
   setBounds(
