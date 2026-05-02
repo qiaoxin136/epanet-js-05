@@ -281,7 +281,7 @@ export const MapCanvas = memo(function MapCanvas({
     onMove: throttle((e: { target: mapboxgl.Map; type: string }) => {
       debug(e, mode.mode, selection, dragTargetRef, "onMove");
       const center = e.target.getCenter().toArray();
-      const bounds = e.target.getBounds().toArray();
+      const bounds = e.target.getBounds()!.toArray();
       return {
         center,
         bounds,
