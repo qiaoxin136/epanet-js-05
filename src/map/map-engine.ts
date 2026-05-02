@@ -127,7 +127,7 @@ export class MapEngine {
         resolve();
       });
 
-      const forceStyleLoadEvent = { diff: false };
+      const forceStyleLoadEvent = { diff: false } as mapboxgl.SetStyleOptions;
       this.map.setStyle(style, forceStyleLoadEvent);
     });
   }
