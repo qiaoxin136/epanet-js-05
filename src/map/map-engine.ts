@@ -309,7 +309,7 @@ export class MapEngine {
 
   queryRenderedFeatures(
     pointOrBox: Parameters<MapboxMap["queryRenderedFeatures"]>[0],
-    options: Parameters<MapboxMap["queryRenderedFeatures"]>[1],
+    options: { layers?: string[] } | undefined,
   ) {
     const layers = options?.layers || [];
 
@@ -317,10 +317,10 @@ export class MapEngine {
       (layer) => !!this.map.getLayer(layer),
     );
 
-    return this.map.queryRenderedFeatures(pointOrBox, {
+    return this.map.queryRenderedFeatures(pointOrBox as any, {
       ...options,
       layers: availableLayers,
-    });
+    } as any);
   }
 
   searchNearbyRenderedFeatures({
