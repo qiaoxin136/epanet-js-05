@@ -114,8 +114,8 @@ export class MapEngine {
     map.on("touchstart", (e) => this.handlers.current.onMapTouchStart(e));
     map.on("touchmove", (e) => this.handlers.current.onMapTouchMove(e));
     map.on("touchend", (e) => this.handlers.current.onMapTouchEnd(e));
-    map.on("zoom", (e: mapboxgl.MapBoxZoomEvent) =>
-      this.handlers.current.onZoom(e),
+    map.on("zoom", (e) =>
+      this.handlers.current.onZoom(e as mapboxgl.MapBoxZoomEvent),
     );
 
     this.map = map;
